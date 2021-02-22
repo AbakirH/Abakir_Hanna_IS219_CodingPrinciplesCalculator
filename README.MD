@@ -3,6 +3,7 @@
 
 
 1. Single Responsibility Principle:
+
 In the Operations folder found in src folder, you see 6 javascript files that conatins one function to do one task
 
 For examble in the Difference.js file we see that the difference function does one thing.
@@ -43,6 +44,7 @@ class Calculator {
 This means that we can add new calculations to the list of Calculations anywhere in our code without having to open our Calculator.js file again. This priciple then can be understood as it is open to exsetention, such as if I want to add a function to multiply 5 numbers together, but previous written code will not need to be changed to accomdate the new code.
 
 3. Liskov Substitution Principle
+
 This principle explains how if we have a parent class and a child class, then we can interchange the parent and child class without getting incorrect results.
 
 For examble the Calculation class has a sum function, that just adds two numbers and returns the sum. However, the child class Calculator sum function takes two numbers to add them and puts them in a list to save them.
@@ -65,6 +67,7 @@ static Sum(a,b) {
 
 
 4. Interface Segregation Principle
+
 This principle says that clients should not be force to depend on interfaces that they do not use. A simple way to explain this principle is do not have unesseary code, and each function inside a class is useable.
 
 Also, this principle says whenever you expose a module for outside use that only the essentials are needed.
@@ -79,6 +82,7 @@ module.exports = Sum;
 This file only needs to numbers to be used and nothing complicated the programmer needs to do to use it.
 
 5. Dependency Inversion Principle
+
 This priciple states that "High-level modules should not depend on low-level modules. Both should depend on abstractions."
 
 If we look at the Calculator class we see one line that is used to specify which operation we are using bewteen two numbers
