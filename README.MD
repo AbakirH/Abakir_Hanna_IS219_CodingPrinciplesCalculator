@@ -79,3 +79,11 @@ module.exports = Sum;
 This file only needs to numbers to be used and nothing complicated the programmer needs to do to use it.
 
 5. Dependency Inversion Principle
+This priciple states that "High-level modules should not depend on low-level modules. Both should depend on abstractions."
+
+If we look at the Calculator class we see one line that is used to specify which operation we are using bewteen two numbers
+
+```
+let calculation = Calculation.Create(a,b,Product);
+```
+Where you see the Product paramter, that can be changed to any other operation that is created in the Operations folder without having to rely on the create function in the Calculation class
