@@ -26,7 +26,7 @@ This same concept can be found in the Principle1.test.js file in the tests folde
 
 2. Open-Closed Principle
 
-If we look at the Calculator class found in the Calculator.js file we see how we can new calculations to the list and clear the list without having to modify the array within the class.
+If we look at the Calculator class found in the Calculator.js file we see how we can add new calculations to the list and clear the list without having to modify the array within the class.
 
 ```
 class Calculator {
@@ -40,3 +40,42 @@ class Calculator {
 }
 ```
 
+This means that we can add new calculations to the list of Calculations anywhere in our code without having to open our Calculator.js file again. This priciple then can be understood as it is open to exsetention, such as if I want to add a function to multiply 5 numbers together, but previous written code will not need to be changed to accomdate the new code.
+
+3. Liskov Substitution Principle
+This principle explains how if we have a parent class and a child class, then we can interchange the parent and child class without getting incorrect results.
+
+For examble the Calculation class has a sum function, that just adds two numbers and returns the sum. However, the child class Calculator sum function takes two numbers to add them and puts them in a list to save them.
+
+Calculation class sum function:
+```
+static Sum(a,b) {
+    return a+b;
+}
+```
+
+Calculator class sum function:
+```
+static Sum(a,b) {
+    let calculation = Calculation.Create(a,b,Sum);
+    this.addCalculation(calculation);
+    return calculation;
+}
+```
+
+
+4. Interface Segregation Principle
+This principle says that clients should not be force to depend on interfaces that they do not use. A simple way to explain this principle is do not have unesseary code, and each function inside a class is useable.
+
+Also, this principle says whenever you expose a module for outside use that only the essentials are needed.
+
+For examble in the sum.js file in the operations folder, the only code you see is as follows:
+```
+function Sum (a,b) {
+    return a + b;
+}
+module.exports = Sum;
+```
+This file only needs to numbers to be used and nothing complicated the programmer needs to do to use it.
+
+5. Dependency Inversion Principle
