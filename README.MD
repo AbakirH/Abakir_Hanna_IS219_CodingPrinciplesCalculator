@@ -87,3 +87,5 @@ If we look at the Calculator class we see one line that is used to specify which
 let calculation = Calculation.Create(a,b,Product);
 ```
 Where you see the Product paramter, that can be changed to any other operation that is created in the Operations folder without having to rely on the create function in the Calculation class
+
+This shows how Calculator class does not depend on the Calculation class to figure out what operation to use.
