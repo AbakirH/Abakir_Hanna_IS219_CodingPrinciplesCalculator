@@ -7,7 +7,7 @@ const Power = require('./Operations/Power');
 const Root = require('./Operations/Root');
 
 class Calculator {
-    static Calculations = []
+    static Calculations = [];
     static addCalculation(calculation){
         Calculator.Calculations.push(calculation);
     }
