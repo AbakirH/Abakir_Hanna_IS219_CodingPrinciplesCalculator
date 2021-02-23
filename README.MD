@@ -31,11 +31,11 @@ If we look at the Calculator class found in the Calculator.js file we see how we
 
 ```
 class Calculator {
-    static Calculations = [];
-    static addCalculation(calculation){
+    Calculations = [];
+    addCalculation(calculation){
         Calculator.Calculations.push(calculation);
     }
-    static clearList(){
+    clearList(){
         this.Calculations = [];
     }
 }
@@ -51,20 +51,62 @@ For examble the Calculation class has a sum function, that just adds two numbers
 
 Calculation class sum function:
 ```
-static Sum(a,b) {
-    return a+b;
+class Calculation {
+    constructor(a, b, op) {
+      this.a = a;
+      this.b = b;
+      this.op = op;
+    }
+    static Create(a, b, op){
+      return new Calculation(a,b,op);
+    }
+    GetResults() {
+      return this.op(this.a,this.b)
+    }
+    static Sum(a,b) {
+      return a+b;
+    }
 }
 ```
 
 Calculator class sum function:
 ```
-static Sum(a,b) {
-    let calculation = Calculation.Create(a,b,Sum);
-    this.addCalculation(calculation);
-    return calculation;
+class Calculator extends Calculation{
+    static Calculations = [];
+    static addCalculation(calculation){
+        Calculator.Calculations.push(calculation);
+    }
+    static Sum(a,b) {
+        let calculation = Calculation.Create(a,b,Sum);
+        this.addCalculation(calculation);
+        return calculation;
+    }
 }
 ```
 
+Another example is: 
+Shape Class
+```
+class Shape {
+    constructor() {
+      ....
+    }
+    area(){
+        return 0;
+    }
+}
+```
+```
+class Circle extends Shape {
+    constructor() {
+      super()
+    }
+    area(){
+        return Math.PI*r*r;
+    }
+}
+```
+We see how the area function for the Circle class is different than the shape one and depending on what class is used, the area function will act accordingly  
 
 4. Interface Segregation Principle
 
@@ -79,7 +121,7 @@ function Sum (a,b) {
 }
 module.exports = Sum;
 ```
-This file only needs to numbers to be used and nothing complicated the programmer needs to do to use it.
+This file only needs two numbers to be used and nothing complicated the programmer needs to do to use it.
 
 5. Dependency Inversion Principle
 
