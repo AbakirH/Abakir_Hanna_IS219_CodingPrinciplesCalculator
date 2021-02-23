@@ -110,7 +110,7 @@ We see how the area function for the Circle class is different than the shape on
 
 4. Interface Segregation Principle
 
-This principle says that clients should not be force to depend on interfaces that they do not use. A simple way to explain this principle is do not have unesseary code, and each function inside a class is useable.
+This principle says that clients should not be force to depend on interfaces that they do not use. A simple way to explain this principle is do not have unesseary code in your file and that each function inside a class is useable.
 
 Also, this principle says whenever you expose a module for outside use that only the essentials are needed.
 
